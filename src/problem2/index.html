@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fancy Form</title>
+
+  <!-- You may add more stuff here -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
+  <div class="section container" id="eth-form">
+    <form id="send-eth-form" onsubmit="return submitEthForm()">
+      <h3>Send ethereum</h3>
+      <fieldset>
+        <label for="input-address">ETH Address</label>
+        <input type="text" id="input-address" pattern="^0x[a-fA-F0-9]{40}$" />
+      </fieldset>
+
+      <fieldset>
+        <label for="input-amount">Amount to send</label>
+        <input type="text" id="input-amount" pattern="[0-9]*" />
+      </fieldset>
+      <button type="submit">SEND TOKENS</button>
+    </form>
+  </div>
+
+  <div class="section container hide" id="otp-form">
+    <form id="submit-otp" onsubmit="return submitOtp()">
+      <h3>Enter your OTP</h3>
+      <fieldset class="otp-input-wrapper">
+        <input class="otp-input" type="text" maxlength="5" pattern="[0-9]{5}" autocomplete="off"
+          onkeyup="if(this.value.length == 5) this.blur()">
+      </fieldset>
+      <button type="submit">SUBMIT OTP</button>
+    </form>
+  </div>
+
+  <div class="section hide" id="congrats-screen">
+    <h3>Congrats you have succesfully sent eth to</h3>
+    <div class="horizontal">
+      <h4>Address:</h4>
+      <h4 id="congrats-address"></h4>
+    </div>
+    <div class="horizontal">
+      <h4>Amount:</h4>
+      <h4 id="congrats-amount"></h4>
+    </div>
+  </div>
+
+  <div class="section hide" id="loading"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
